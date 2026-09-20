@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/dashboard/index", "pages/bills/index", "pages/expense-add/index", "pages/family/index", "pages/profile/index", "pages/onboarding/index", "pages/privacy/index"],
+  "pages": ["pages/dashboard/index", "pages/bills/index", "pages/expense-add/index", "pages/family/index", "pages/profile/index", "pages/onboarding/index", "pages/privacy/index", "pages/recurring/index"],
   "window": {"backgroundColor":"#F6F4EE","backgroundTextStyle":"dark","navigationBarBackgroundColor":"#F6F4EE","navigationBarTitleText":"璀璨之家","navigationBarTextStyle":"black"},
   "tabBar": {"color":"#8A8A84","selectedColor":"#E07A45","backgroundColor":"#FFFEFB","borderStyle":"white","list":[
     {"pagePath":"pages/dashboard/index","text":"首页"},{"pagePath":"pages/bills/index","text":"账单"},{"pagePath":"pages/expense-add/index","text":"记账"},{"pagePath":"pages/family/index","text":"家庭"},{"pagePath":"pages/profile/index","text":"我的"}

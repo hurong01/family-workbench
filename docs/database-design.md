@@ -22,7 +22,10 @@
 
 邀请码必须由云函数生成和验证，过期或已使用的邀请码不能再次加入。
 
+## backups
+
+`familyId`、`createdBy`、`family`、`expenses[]`、`createdAt`。仅管理员可通过云函数创建或恢复，客户端不得直接读写。
+
 ## 安全规则
 
 客户端默认不直接写入 `families`、`users`、`invites` 和 `expenses`；业务写操作统一调用云函数。生产环境还需在每个云函数中校验成员身份与角色。
-
