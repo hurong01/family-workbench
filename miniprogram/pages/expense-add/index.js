@@ -1,13 +1,13 @@
 const { cloudCall, showError } = require('../../services/cloud')
 Page({
-  data:{categories:['房租','水费','电费','宽带费','物业费','生活用品','燃气费','维修费','其他'],members:[],categoryIndex:0,payerIndex:0,date:'',amount:'',note:'',expenseId:'',receiptFileID:'',receiptTempPath:'',uploading:false,saving:false,loading:true},
+  data:{categories:['房租','水费','电费','宽带费','物业费','生活用品','燃气费','维修费','其他'],members:[],categoryIndex:0,payerIndex:0,date:'',amount:'',itemName:'',expenseId:'',receiptFileID:'',receiptTempPath:'',uploading:false,saving:false,loading:true},
   onLoad(){const d=new Date(),p=n=>String(n).padStart(2,'0');this.setData({date:`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`})},
   async onShow(){
     if(!this.data.members.length) await this.loadFamily()
     const editing=wx.getStorageSync('editingExpense')
     if(editing){
       wx.removeStorageSync('editingExpense')
-      this.setData({expenseId:editing._id,amount:String(editing.amount),categoryIndex:Math.max(0,this.data.categories.indexOf(editing.category)),date:editing.paidAt,note:editing.note||'',receiptFileID:editing.receiptFileID||'',receiptTempPath:editing.receiptFileID||'',payerIndex:Math.max(0,this.data.members.indexOf(editing.payerName))})
+      this.setData({expenseId:editing._id,amount:String(editing.amount),categoryIndex:Math.max(0,this.data.categories.indexOf(editing.category)),date:editing.paidAt,itemName:editing.itemName||editing.note||'',receiptFileID:editing.receiptFileID||'',receiptTempPath:editing.receiptFileID||'',payerIndex:Math.max(0,this.data.members.indexOf(editing.payerName))})
     }else{
       const category=wx.getStorageSync('prefillCategory'),index=this.data.categories.indexOf(category)
       if(index>=0)this.setData({categoryIndex:index})
@@ -23,7 +23,7 @@ Page({
     if(!amount||amount<=0)return wx.showToast({title:'请输入正确金额',icon:'none'})
     if(!this.data.members.length)return wx.showToast({title:'家庭成员加载失败',icon:'none'})
     this.setData({saving:true})
-    const data={expenseId:this.data.expenseId,amount,category:this.data.categories[this.data.categoryIndex],payerName:this.data.members[this.data.payerIndex],paidAt:this.data.date,month:this.data.date.slice(0,7),note:this.data.note.trim(),receiptFileID:this.data.receiptFileID}
-    try{await cloudCall(this.data.expenseId?'updateExpense':'saveExpense',data);wx.showToast({title:this.data.expenseId?'已更新':'已记账'});this.setData({expenseId:'',amount:'',note:'',receiptFileID:'',receiptTempPath:''});setTimeout(()=>wx.switchTab({url:'/pages/bills/index'}),500)}catch(e){showError(e)}finally{this.setData({saving:false})}
+    const data={expenseId:this.data.expenseId,amount,category:this.data.categories[this.data.categoryIndex],itemName:this.data.itemName.trim(),payerName:this.data.members[this.data.payerIndex],paidAt:this.data.date,month:this.data.date.slice(0,7),receiptFileID:this.data.receiptFileID}
+    try{await cloudCall(this.data.expenseId?'updateExpense':'saveExpense',data);wx.showToast({title:this.data.expenseId?'已更新':'已记账'});this.setData({expenseId:'',amount:'',itemName:'',receiptFileID:'',receiptTempPath:''});setTimeout(()=>wx.switchTab({url:'/pages/bills/index'}),500)}catch(e){showError(e)}finally{this.setData({saving:false})}
   }
 })

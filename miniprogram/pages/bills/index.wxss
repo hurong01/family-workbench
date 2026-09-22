@@ -1,1 +1,120 @@
-.month-row{display:flex;justify-content:space-between;align-items:center;margin:12rpx 4rpx 28rpx}.month{font-size:38rpx;font-weight:750}.bill-summary{padding:34rpx}.bill-total{font-size:62rpx;font-weight:750;margin:12rpx 0 26rpx}.divider{border-top:1rpx solid #eeeae1}.chart-title{font-weight:700;margin:28rpx 0 18rpx}.bar-row{margin:20rpx 0}.bar-label{display:flex;justify-content:space-between;font-size:25rpx;margin-bottom:10rpx}.bar{height:12rpx;border-radius:10rpx;background:#eeeae1;overflow:hidden}.bar view{height:100%;border-radius:10rpx;background:#e07a45}.bill-list{padding:0 28rpx}.bill-row{min-height:126rpx;display:flex;align-items:center;border-bottom:1rpx solid #eeeae1}.bill-row:last-child{border:0}.bill-icon{width:72rpx;height:72rpx;border-radius:22rpx;background:#e7eee8;display:flex;align-items:center;justify-content:center;margin-right:20rpx;font-weight:700}.bill-main{flex:1;line-height:1.7}.small{font-size:23rpx}.bill-price{font-weight:700}
+.month-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12rpx 4rpx 28rpx
+}
+
+.month {
+  font-size: 38rpx;
+  font-weight: 750
+}
+
+.bill-summary {
+  padding: 34rpx
+}
+
+.bill-total {
+  font-size: 62rpx;
+  font-weight: 750;
+  margin: 12rpx 0 26rpx
+}
+
+.divider {
+  border-top: 1rpx solid #eeeae1
+}
+
+.chart-title {
+  font-weight: 700;
+  margin: 28rpx 0 18rpx
+}
+
+.bar-row {
+  margin: 20rpx 0
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25rpx;
+  margin-bottom: 10rpx
+}
+
+.bar {
+  height: 12rpx;
+  border-radius: 10rpx;
+  background: #eeeae1;
+  overflow: hidden
+}
+
+.bar view {
+  height: 100%;
+  border-radius: 10rpx;
+  background: #e07a45
+}
+
+.bill-list {
+  padding: 0 28rpx
+}
+
+.bill-row {
+  min-height: 126rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeae1;
+  padding: 14rpx 0
+}
+
+.bill-row:last-child {
+  border: 0
+}
+
+.bill-icon {
+  min-width: 72rpx;
+  min-height: 72rpx;
+  border-radius: 22rpx;
+  background: #e7eee8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  font-weight: 700;
+  flex-shrink: 0
+}
+
+.bill-main {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.7
+}
+
+.bill-name {
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420rpx
+}
+
+.bill-category {
+  font-size: 23rpx;
+  color: #7c7468;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420rpx
+}
+
+.bill-side {
+  text-align: right;
+  margin-left: 16rpx;
+  flex-shrink: 0
+}
+
+.small {
+  font-size: 23rpx
+}
+
+.bill-price {
+  font-weight: 700
+}
